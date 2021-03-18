@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Switch, Route } from 'react-router-dom'
+import Home from './component/Home/Home'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const pathVariants = {
+	initial: {
+		opacity: 0,
+		pathLength: 0,
+		fill: 'rgba(255, 255, 255, 0)'
+	},
+	final: {
+		opacity: 1,
+		pathLength: 1,
+		fill: 'rgba(0, 0, 0, 1)',
+		transition: {
+			duration: 3,
+			ease: 'easeInOut'
+		}
+	}
 }
 
-export default App;
+function App() {
+	return (
+		<div className='App'>
+			<div className='logo'>
+				<motion.svg
+					width='64'
+					height='46'
+					viewBox='0 0 64 46'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<motion.path
+						variants={pathVariants}
+						initial='initial'
+						animate='final'
+						d='M0.5 39.5V6C0.5 3.03132 3.21904 0.500001 6.62069 0.500001L48.3421 0.500001L48.3423 0.500001C49.3846 0.499529 50.4078 0.739988 51.3145 1.19613C52.2212 1.6522 52.9788 2.30731 53.52 3.09511L53.5202 3.09545L62.5531 16.2215L62.5531 16.2215C63.1579 17.1 63.5 18.1126 63.5 19.124V39.5H57.035H56.6581L56.5543 39.8624C55.6365 43.0684 52.4345 45.5 48.5517 45.5C44.669 45.5 41.467 43.0684 40.5491 39.8624L40.4454 39.5H40.0684H23.9316H23.5546L23.4509 39.8624C22.533 43.0684 19.331 45.5 15.4483 45.5C11.5655 45.5 8.36351 43.0684 7.44565 39.8624L7.34191 39.5H6.96497H0.5ZM18.1552 4V3.5H17.6552H6.62069C5.15206 3.5 3.91379 4.55238 3.91379 6V16V16.5H4.41379H17.6552H18.1552V16V4ZM22.069 3.5H21.569V4V16V16.5H22.069H35.3103H35.8103V16V4V3.5H35.3103H22.069ZM39.7241 3.5H39.2241V4V16V16.5H39.7241H57.7942H58.7435L58.2065 15.7172L50.6192 4.65518L50.6179 4.65322C50.1124 3.92373 49.2654 3.5 48.3443 3.5H39.7241ZM4.41379 19.5H3.91379V20V36V36.5H4.41379H6.96497H7.34191L7.44565 36.1376C8.36351 32.9316 11.5655 30.5 15.4483 30.5C19.331 30.5 22.533 32.9316 23.4509 36.1376L23.5546 36.5H23.9316H40.0684H40.4454L40.5491 36.1376C41.467 32.9316 44.669 30.5 48.5517 30.5C52.4345 30.5 55.6365 32.9316 56.5543 36.1376L56.6581 36.5H57.035H59.5862H60.0862V36V28V27.5H59.5862H53.4655V24.5H59.5862H60.0862V24V20V19.5H59.5862H4.41379ZM20.3621 38C20.3621 35.4447 18.1421 33.5 15.4483 33.5C12.7545 33.5 10.5345 35.4447 10.5345 38C10.5345 40.5553 12.7545 42.5 15.4483 42.5C18.1421 42.5 20.3621 40.5553 20.3621 38ZM53.4655 38C53.4655 35.4447 51.2455 33.5 48.5517 33.5C45.8579 33.5 43.6379 35.4447 43.6379 38C43.6379 40.5553 45.8579 42.5 48.5517 42.5C51.2455 42.5 53.4655 40.5553 53.4655 38Z'
+						stroke='black'
+					/>
+				</motion.svg>
+			</div>
+			<AnimatePresence exitBeforeEnter>
+				<Switch>
+					<Route path='/' exact component={Home} />
+				</Switch>
+			</AnimatePresence>
+		</div>
+	)
+}
+
+export default App
