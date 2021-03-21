@@ -10,7 +10,7 @@ const containerVariants = {
 		opacity: 1,
 		transition: {
 			delay: 1,
-			duration: 0.7
+			duration: 1
 		}
 	},
 	exit: {

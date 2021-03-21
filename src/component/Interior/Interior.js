@@ -2,18 +2,6 @@ import React, { useEffect, useState } from 'react'
 import classes from './Interior.module.css'
 import { motion } from 'framer-motion'
 const svgVariants = {
-	initial: {
-		scale: 0
-	},
-	final: {
-		scale: 1,
-		transition: {
-			duration: 5,
-			type: 'spring',
-			damping: 4,
-			ease: 'easeInOut'
-		}
-	},
 	whileHover: {
 		scale: 1.15,
 
@@ -102,8 +90,6 @@ const Interior = ({ available }) => {
 	const lastSeat = color => (
 		<motion.svg
 			variants={svgVariants}
-			initial='initial'
-			animate='final'
 			whileHover='whileHover'
 			whileTap='whileTap'
 			width='47'
@@ -121,8 +107,6 @@ const Interior = ({ available }) => {
 	const seats = color => (
 		<motion.svg
 			variants={svgVariants}
-			initial='initial'
-			animate='final'
 			whileHover='whileHover'
 			whileTap='whileTap'
 			width='67'
