@@ -1,0 +1,12 @@
+.detailContainer {
+	right: 0;
+	top: 0;
+	position: fixed;
+	top: -10px;
+	width: 45vw;
+	height: 101.2vh;
+}
+.formContainer {
+	height: 100%;
+	width: 55vw;
+}

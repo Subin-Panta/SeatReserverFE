@@ -1,12 +1,12 @@
 .van {
-	height: 65vh;
+	height: 70vh;
 	display: flex;
 	flex-direction: column;
 	width: 20vw;
 	background: #000000;
 	border-radius: 100px 100px 11px 11px;
 	box-sizing: border-box;
-	padding: 45px 35px;
+	padding: 45px 35px 0px 35px;
 }
 .row {
 	display: flex;
@@ -29,7 +29,7 @@
 .lastRow {
 	display: flex;
 	flex-direction: row;
-	margin: 15px auto 0 auto;
+	margin: 40px auto 0 auto;
 }
 .Number {
 	background-color: rgb(255, 0, 0);
@@ -44,4 +44,31 @@
 .disabled {
 	cursor: not-allowed;
 	pointer-events: none;
+}
+.lastSeat {
+	width: 2.9vw;
+
+	height: 7vh;
+}
+.button {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(51, 65, 1, 0.534);
+	border-radius: 10px;
+	margin: 1vh 5vw;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	background-color: #9dfe00;
+	width: 10vw;
+	height: 5vh;
+}
+.button:hover {
+	cursor: pointer;
+}
+.exterior {
+	max-height: 80vh;
+	max-width: 20vw;
 }

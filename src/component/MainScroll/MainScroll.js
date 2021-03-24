@@ -15,7 +15,7 @@ const MainScroll = () => {
 					'seat5',
 					'seat6',
 					'seat7',
-					'seat17',
+					'seat16',
 					'seat9',
 					'seat10',
 					'seat8',
@@ -41,7 +41,7 @@ const MainScroll = () => {
 					'seat14',
 					'seat15',
 					'seat16',
-					''
+					'seat17'
 				]}
 			/>
 		</div>

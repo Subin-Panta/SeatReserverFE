@@ -1,0 +1,84 @@
+.form {
+	margin: auto;
+	position: relative;
+	top: 20vh;
+	background-color: #edf7b7;
+	border-radius: 20px;
+	box-sizing: border-box;
+	height: 500px;
+	padding: 40px;
+	width: 400px;
+}
+
+.inputContainer {
+	height: 50px;
+	position: relative;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.ic1 {
+	margin-top: 40px;
+}
+
+.input {
+	border-radius: 12px;
+	border: 0;
+	box-sizing: border-box;
+	color: rgb(37, 37, 37);
+	font-size: 18px;
+	height: 100%;
+	outline: 0;
+	padding: 4px 20px 0;
+	width: 100%;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.input:focus {
+	box-shadow: inset 0px 0px 0px 2px #2f9ddc;
+}
+.placeholder {
+	color: #65657b;
+	font-family: sans-serif;
+	left: 20px;
+	pointer-events: none;
+	position: absolute;
+
+	transition: transform 200ms, color 200ms;
+	top: 20px;
+}
+/* first line= Input selected chaina tara bhitra value aisakyo bhane do this*/
+
+/* Second line =This means change placeholder class when class input is focused */
+.input:not(:placeholder-shown) ~ .placeholder,
+.input:focus ~ .placeholder {
+	color: #161515;
+	background-color: #edf7b7;
+	left: 0px;
+	box-sizing: border-box;
+	padding: 5px;
+	border-radius: 10px;
+	transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+/* if a element containes placeholder property then hide it */
+::placeholder {
+	color: #65657b;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+/* if a input is focused and that input has placeholder property then display it */
+.input:focus::placeholder {
+	opacity: 1;
+}
+.submit {
+	background-color: #2988f8;
+	font-size: 14px;
+	border: solid 1px rgb(9, 112, 172);
+	border-radius: 5px;
+	color: rgb(255, 228, 228);
+	box-sizing: border-box;
+	width: 100px;
+	height: 30px;
+	margin-left: 30%;
+	margin-top: 15%;
+}

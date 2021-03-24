@@ -1,0 +1,9 @@
+.container {
+	box-sizing: border-box;
+	padding: 20px;
+	background-color: #ebff00;
+	border: solid 1px rgba(0, 0, 0, 0.514);
+
+	height: 100%;
+	width: 100%;
+}

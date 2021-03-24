@@ -8,6 +8,7 @@ const containerVariants = {
 	},
 	final: {
 		opacity: 1,
+
 		transition: {
 			delay: 1,
 			duration: 1
@@ -25,6 +26,7 @@ const Home = () => {
 			initial='initial'
 			animate='final'
 			exit='exit'
+			className={classes.container}
 		>
 			<MainScroll />
 		</motion.div>
