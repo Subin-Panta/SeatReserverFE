@@ -1,18 +1,15 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainScroll from '../MainScroll/MainScroll'
 import classes from './Home.module.css'
+import LOGO from '../Header/Logo'
+import { useHistory } from 'react-router'
 const containerVariants = {
 	initial: {
-		opacity: 0
+		x: '100vw'
 	},
 	final: {
-		opacity: 1,
-
-		transition: {
-			delay: 1,
-			duration: 1
-		}
+		x: 0
 	},
 	exit: {
 		x: '-100vw',
@@ -20,6 +17,10 @@ const containerVariants = {
 	}
 }
 const Home = () => {
+	const history = useHistory()
+	useEffect(() => {
+		console.log(history)
+	}, [])
 	return (
 		<motion.div
 			variants={containerVariants}
@@ -28,6 +29,18 @@ const Home = () => {
 			exit='exit'
 			className={classes.container}
 		>
+			<div className={classes.background}>
+				<div className={classes.One}>
+					<LOGO />
+				</div>
+				<div className={classes.Two}>
+					<LOGO />
+				</div>{' '}
+				<div className={classes.Three}>
+					<LOGO />
+				</div>
+			</div>
+
 			<MainScroll />
 		</motion.div>
 	)

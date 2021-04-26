@@ -1,0 +1,130 @@
+a {
+	text-decoration: none;
+	color: white;
+}
+.header {
+	height: 5rem;
+	width: 100vw;
+	display: fixed;
+	top: 0;
+	left: 0;
+	margin-top: 0;
+	background-color: #ff504300;
+}
+.headerUl {
+	margin-top: 0px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+.headerLi,
+.headerLi a {
+	color: rgb(0, 0, 0);
+	font-family: var(--font);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 2rem;
+	margin: 0 2rem;
+}
+
+.headerLiLast {
+	margin: auto 10px auto auto;
+	color: white;
+	box-sizing: border-box;
+	padding-left: 20px;
+	/* padding: 10px 0 10px 20px; */
+	width: 150px;
+	border-radius: 20px;
+	height: 40px;
+	background: #565656;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.headerLi:hover,
+.headerLiLast:hover {
+	cursor: pointer;
+}
+.headerLiLast:hover span {
+	opacity: 0.9;
+}
+.headerLi::before {
+	content: '';
+	background: #ffffff;
+	width: 100%;
+	height: 5px;
+	top: 60px;
+	border-radius: 5px;
+	transform: scaleX(0);
+	animation: downFall 0.5s linear;
+	animation-fill-mode: forwards;
+	z-index: 0;
+	display: inline-block;
+	position: relative;
+}
+.headerLi:hover::before {
+	animation: hover 0.5s linear;
+	animation-fill-mode: forwards;
+}
+@keyframes hover {
+	0% {
+		transform: scaleX(0);
+	}
+	45% {
+		transform: scaleX(1.05);
+	}
+
+	100% {
+		transform: scaleX(1.05);
+		opacity: 0.5;
+	}
+}
+@keyframes downFall {
+	0% {
+		opacity: 0.5;
+
+		transform: scaleX(1.05);
+	}
+	45% {
+	}
+	55% {
+		transform: scaleX(1.05);
+
+		opacity: 1;
+	}
+
+	100% {
+		transform: scaleX(0);
+
+		opacity: 0.02;
+	}
+}
+
+.headerLiLast:hover .text {
+	color: #ffd700;
+}
+.mobileNav {
+	position: fixed;
+	left: 15px;
+	top: 30px;
+
+	display: none;
+}
+.mobileNav:hover {
+	cursor: pointer;
+}
+.mobileNav:hover > span,
+.mobileNav:active > span {
+	background-color: rgb(196, 196, 196);
+}
+.drawer {
+	display: none;
+}
+.text {
+	display: inline-block;
+	text-align: center;
+	margin-top: 5px;
+	font-size: 18px;
+	font-family: var(--font);
+}

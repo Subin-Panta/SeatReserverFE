@@ -2,7 +2,7 @@
 	margin: auto;
 	position: relative;
 	top: 20vh;
-	background-color: #edf7b7;
+	background-color: black;
 	border-radius: 20px;
 	box-sizing: border-box;
 	height: 500px;
@@ -35,7 +35,7 @@
 }
 
 .input:focus {
-	box-shadow: inset 0px 0px 0px 2px #2f9ddc;
+	box-shadow: inset 0px 0px 0px 2px #ff5043;
 }
 .placeholder {
 	color: #65657b;
@@ -43,7 +43,7 @@
 	left: 20px;
 	pointer-events: none;
 	position: absolute;
-
+	font-family: var(--font);
 	transition: transform 200ms, color 200ms;
 	top: 20px;
 }
@@ -52,16 +52,18 @@
 /* Second line =This means change placeholder class when class input is focused */
 .input:not(:placeholder-shown) ~ .placeholder,
 .input:focus ~ .placeholder {
-	color: #161515;
-	background-color: #edf7b7;
+	font-family: var(--font);
+	color: #ffffff;
+	background-color: #ff5043;
 	left: 0px;
 	box-sizing: border-box;
 	padding: 5px;
 	border-radius: 10px;
-	transform: translateY(-30px) translateX(10px) scale(0.75);
+	transform: translateY(-40px) translateX(10px) scale(0.75);
 }
 /* if a element containes placeholder property then hide it */
 ::placeholder {
+	font-family: var(--font);
 	color: #65657b;
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
@@ -71,14 +73,17 @@
 	opacity: 1;
 }
 .submit {
-	background-color: #2988f8;
-	font-size: 14px;
-	border: solid 1px rgb(9, 112, 172);
+	display: block;
+	font-family: var(--font);
+	background-color: #ff5043;
+	font-size: 20px;
+	border: solid 1px rgb(255, 255, 255);
 	border-radius: 5px;
 	color: rgb(255, 228, 228);
 	box-sizing: border-box;
-	width: 100px;
-	height: 30px;
-	margin-left: 30%;
-	margin-top: 15%;
+	width: 150px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
 }

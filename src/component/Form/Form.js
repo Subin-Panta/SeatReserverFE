@@ -1,7 +1,9 @@
+import axios from 'axios'
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import classes from './form.module.css'
-const Form = () => {
+
+const Form = ({ gottaGo }) => {
 	const [formData, setFormData] = useState({
 		firstName: '',
 		lastName: '',
@@ -22,6 +24,8 @@ const Form = () => {
 	}
 	const submitHandler = e => {
 		e.preventDefault()
+		//check if the fields
+		gottaGo(formData)
 	}
 	return (
 		<form className={classes.form} onSubmit={submitHandler}>
@@ -33,6 +37,7 @@ const Form = () => {
 					className={classes.input}
 					type='text'
 					placeholder=' '
+					required
 				/>
 				{/* <div className={classes.cut}></div> */}
 				<label htmlFor='firstname' className={classes.placeholder}>
@@ -48,6 +53,7 @@ const Form = () => {
 					className={classes.input}
 					type='text'
 					placeholder=' '
+					required
 				/>
 				<div className={classes.cut}></div>
 				<label htmlFor='lastName' className={classes.placeholder}>
@@ -63,6 +69,8 @@ const Form = () => {
 					className={classes.input}
 					type='text'
 					placeholder=' '
+					required
+					minLength='9'
 				/>
 
 				<label htmlFor='phoneNumber' className={classes.placeholder}>
@@ -76,8 +84,9 @@ const Form = () => {
 					name='emailAddress'
 					onChange={inputChangeHandler}
 					className={classes.input}
-					type='text'
+					type='email'
 					placeholder='email@example.com'
+					required
 				/>
 
 				<label htmlFor='emailAddress' className={classes.placeholder}>

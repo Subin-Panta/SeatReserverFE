@@ -1,7 +1,42 @@
-import { motion } from 'framer-motion'
-import React from 'react'
+import { DragFeature, motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 import classes from './Details.module.css'
-const Details = () => {
+const contentsBruh = arr => {
+	if (arr) {
+		return (
+			<ul className={classes.list}>
+				{/* //loop thorugh data */}
+				{arr[0].map((item, index) => (
+					<li className={classes.listItems} key={index}>
+						{item}
+					</li>
+				))}
+			</ul>
+		)
+	}
+}
+const getTotal = (data, price) => {
+	const totalSeats = data[0].length
+	return (
+		<div className={classes.footer}>
+			<div>Rs{price}/seat</div>
+			<div>TotalSeats: {totalSeats}</div>
+		</div>
+	)
+}
+const Details = ({ data, plateNumber, price }) => {
+	// const [newData, setNewData] = useState([])
+	// useEffect(() => {
+	// 	setNewData(data.data[0])
+	// })
+	const contents = () => (
+		<div>
+			<h1 className={classes.title}>Van#{plateNumber}</h1>
+			{contentsBruh(data)}
+			{getTotal(data, price)}
+		</div>
+	)
+
 	return (
 		<div className={classes.container}>
 			<div className={classes.loading}>
@@ -23,10 +58,12 @@ const Details = () => {
 						width='46.8174'
 						height='45.7833'
 						transform='rotate(0.858536 0.689941 0.787323)'
-						fill='#2988F8'
+						fill='black'
 					/>
 				</motion.svg>
 			</div>
+			{/* {console.log(data, plateNumber)} */}
+			{data.length > 0 && price && plateNumber ? contents() : null}
 		</div>
 	)
 }

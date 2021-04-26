@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import classes from './Interior.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const svgVariants = {
 	whileHover: {
@@ -20,10 +21,6 @@ const svgVariants = {
 	}
 }
 const submitHandler = (e, history) => {
-	//send data to backend
-	//where you verify the user selected seats are available
-	//if the entered data is correct proceed to the next page
-
 	history.push('/bill')
 	//if not refresh with a warning message at the top
 }
@@ -39,7 +36,7 @@ const ButtonBuilder = obj => {
 	}
 	return false
 }
-const Interior = ({ available }) => {
+const Interior = ({ available, plateNumber, price }) => {
 	const [seat, setSeat] = useState({
 		seat1: false,
 		seat2: false,
@@ -154,7 +151,7 @@ const Interior = ({ available }) => {
 		</motion.svg>
 	)
 	return (
-		<div className={classes.exterior}>
+		<div>
 			<div className={classes.van}>
 				<div
 					className={seat.seat1 ? classes.seat : classes.seatDisabled}
@@ -354,7 +351,8 @@ const Interior = ({ available }) => {
 					</div>
 				</div>
 			</div>
-			<div className={classes.Number}>718556</div>
+			<div className={classes.Number}>{plateNumber}</div>
+			<div className={classes.price}>Rs{price}/Seat</div>
 			<AnimatePresence>
 				{ButtonBuilder(selectedSeat) ? (
 					<motion.button
@@ -375,16 +373,24 @@ const Interior = ({ available }) => {
 						}}
 						whileHover={{
 							backgroundColor: ['#9dfe00', '#F9FE00'],
-							scale: ['1', '0.9'],
+							scale: ['1.1', '0.7'],
 							transition: {
-								duration: 1,
+								duration: 0.5,
 								repeat: Infinity,
 								repeatType: 'reverse'
 							}
 						}}
-						onClick={e => submitHandler(e, history)}
 					>
-						Build Order
+						<Link
+							to={{
+								pathname: '/bill',
+								data: { ...selectedSeat },
+								plateNumber,
+								price
+							}}
+						>
+							Build Order
+						</Link>
 					</motion.button>
 				) : null}
 			</AnimatePresence>

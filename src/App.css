@@ -2,25 +2,20 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	background: #ff5043;
 }
 h1,
 p {
 	margin: 0 0 1em;
 }
-.App {
-	height: 100vh;
-	width: 100vw;
-	overflow: hidden;
-	background: linear-gradient(
-		0deg,
-		rgba(32, 244, 104, 0.58) 0.92%,
-		rgba(241, 127, 255, 0) 60%
-	);
-}
+
 .logo {
 	position: absolute;
 	margin-left: 48%;
 	top: 30px;
 	text-align: center;
 	z-index: 5;
+}
+:root {
+	--font: 'Baloo Tamma 2', cursive;
 }

@@ -1,9 +1,42 @@
 .container {
 	box-sizing: border-box;
 	padding: 20px;
-	background-color: #ebff00;
-	border: solid 1px rgba(0, 0, 0, 0.514);
-
-	height: 100%;
-	width: 100%;
+	z-index: 10000;
+	background-color: rgb(255, 255, 255);
+	margin-left: auto;
+	margin-right: auto;
+	height: 90vh;
+	width: 500px;
+	display: block;
+	border-radius: 20px;
+}
+.list {
+	text-align: center;
+	list-style-type: disc;
+}
+.listItems {
+	font-family: var(--font);
+	font-size: 20px;
+	margin: 20px 0;
+	/* color: white;
+	background-color: yellow; */
+}
+.title {
+	font-family: var(--font);
+	font-size: 40px;
+	text-align: center;
+	background-color: #ff5043;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+.footer {
+	font-family: var(--font);
+	font-size: 20px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #6fecf5;
+	border-radius: 5px;
+	margin-top: 40px;
+	width: 10rem;
 }

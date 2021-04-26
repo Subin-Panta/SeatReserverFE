@@ -1,0 +1,42 @@
+.background {
+	position: fixed;
+	z-index: -1;
+	/* width: 100%; */
+	padding: 20px 0px 20px 60px;
+}
+.bill {
+	background-color: white;
+	height: auto;
+	width: 600px;
+	display: inline-block;
+	border-radius: 30px;
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	padding: 20px;
+}
+.header {
+	font-family: var(--font);
+	text-align: center;
+}
+span {
+	font-family: var(--font);
+	/* text-align: center; */
+	font-size: 0.9rem;
+}
+.body {
+	/* display:flex; */
+	font-family: var(--font);
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.bodyItems {
+	margin: 10px 0;
+}
+.footer {
+	display: block;
+	margin: 0px 0px 0px auto;
+}
+.footer:hover {
+	cursor: pointer;
+}
