@@ -7,3 +7,14 @@
 	margin-top: 40px;
 	box-sizing: border-box;
 }
+.mobile {
+	display: none;
+}
+@media (max-width: 966.4px) {
+	.container {
+		display: none;
+	}
+	.mobile {
+		display: block;
+	}
+}

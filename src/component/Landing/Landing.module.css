@@ -11,7 +11,7 @@
 	z-index: -1000;
 }
 .main {
-	height: 100%;
+	height: 100vh;
 	position: relative;
 	text-align: center;
 	margin: 20px 0 0 0;
@@ -45,6 +45,12 @@
 }
 .svg {
 	transform-style: preserve-3d;
+	width: 60vw;
+	height: 80vh;
+}
+.svg2 {
+	transform-style: preserve-3d;
+	display: none;
 }
 
 .individual {
@@ -89,5 +95,16 @@
 		transform: scaleX(0);
 		height: 5px;
 		opacity: 0.02;
+	}
+}
+@media (max-width: 966.4px) {
+	.foreground {
+		font-size: 3rem;
+	}
+	.svg {
+		display: none;
+	}
+	.svg2 {
+		display: inline-block;
 	}
 }

@@ -1,0 +1,97 @@
+.hugeContainer {
+	position: absolute;
+	left: 50%;
+	margin-left: -140px;
+}
+.van {
+	height: 520px;
+	display: flex;
+	flex-direction: column;
+	width: 280px;
+	background: #000000;
+	border-radius: 100px 100px 11px 11px;
+	box-sizing: border-box;
+	padding: 40px 20px 0px 20px;
+	margin: auto;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+}
+.seat {
+	/* cursor: not-allowed;
+	pointer-events: none; */
+	width: 70px;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.seatDisabled {
+	cursor: not-allowed;
+	pointer-events: none;
+	width: 70px;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.lastRow {
+	display: flex;
+	flex-direction: row;
+	margin: 40px auto 0 auto;
+}
+.Number {
+	background-color: rgb(255, 0, 0);
+	color: white;
+	width: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 2px;
+	border-radius: 0 0 11px 11px;
+}
+.disabled {
+	cursor: not-allowed;
+	pointer-events: none;
+}
+.lastSeat {
+	width: 40px;
+	height: 40px;
+}
+.button {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	border: 1px solid rgba(51, 65, 1, 0.534);
+	border-radius: 10px;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	background-color: #9dfe00;
+	width: 160px;
+	height: 42px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.button a {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	text-align: center;
+	color: rgb(0, 0, 0);
+}
+.button:hover {
+	cursor: pointer;
+}
+
+.exterior {
+	max-height: 70vh;
+	max-width: 20vw;
+}
+.price {
+	font-family: Rokkitt;
+	font-style: normal;
+	font-weight: normal;
+	color: blanchedalmond;
+	text-align: center;
+	font-size: 1.5rem;
+}

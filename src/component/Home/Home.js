@@ -39,6 +39,12 @@ const Home = () => {
 				<div className={classes.Three}>
 					<LOGO />
 				</div>
+				<div className={classes.four}>
+					<LOGO />
+				</div>
+				<div className={classes.five}>
+					<LOGO />
+				</div>
 			</div>
 
 			<MainScroll />

@@ -5,11 +5,14 @@ a {
 .header {
 	height: 5rem;
 	width: 100vw;
-	display: fixed;
+	display: block;
 	top: 0;
 	left: 0;
 	margin-top: 0;
 	background-color: #ff504300;
+}
+.sideBar {
+	display: none;
 }
 .headerUl {
 	margin-top: 0px;
@@ -127,4 +130,36 @@ a {
 	margin-top: 5px;
 	font-size: 18px;
 	font-family: var(--font);
+}
+@media (max-width: 966.4px) {
+	.header {
+		display: none;
+	}
+	.sideBar {
+		display: inline;
+	}
+	.showSideBar {
+		padding: 10px;
+	}
+	.box {
+		display: flex;
+		flex-direction: column;
+		height: calc(100% - 90px);
+		position: absolute;
+		width: 100%;
+		z-index: 1000;
+		background-color: #ff5043;
+		top: 90px;
+		text-align: center;
+		vertical-align: center;
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+	/* .headerLi {
+		width: 200px;
+	} */
+	.sideBar:hover {
+		cursor: pointer;
+	}
 }

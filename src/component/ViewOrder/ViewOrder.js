@@ -1,6 +1,8 @@
 import classes from './ViewOrder.module.css'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 const conatinerVariants = {
 	initial: {
 		x: '100vw'
@@ -11,6 +13,26 @@ const conatinerVariants = {
 }
 const ViewOrder = props => {
 	const [data, setData] = useState({})
+	const history = useHistory()
+	const viewHandler = async e => {
+		console.log('Here')
+		try {
+			const response = await axios.get(`/order/downloadOrder/${data._id}`, {
+				responseType: 'blob'
+			})
+			history.push('/')
+			//opening new tab in window
+			//Create a Blob from the PDF Stream
+			const file = new Blob([response.data], { type: 'application/pdf' })
+			//Build a URL from the file
+			const fileURL = URL.createObjectURL(file)
+			//Open the URL on new Window
+			const pdfWindow = window.open()
+			pdfWindow.location.href = fileURL
+		} catch (error) {
+			console.log(error)
+		}
+	}
 	useEffect(() => {
 		if (!props.location.res) {
 			props.history.push('/order')
@@ -125,11 +147,7 @@ const ViewOrder = props => {
 				</div>
 
 				<motion.svg
-					onClick={() =>
-						console.log(
-							`need to go to the endpoint which will return us a pdf ${data._id}`
-						)
-					}
+					onClick={viewHandler}
 					className={classes.footer}
 					whileHover={{
 						scale: [1.1, 0.9],

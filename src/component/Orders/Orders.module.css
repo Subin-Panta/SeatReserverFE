@@ -32,13 +32,64 @@
 .searchBox:focus ~ .placeholder {
 	/* box-shadow: inset 0px 0px 0px 2px #d88231; */
 	color: black;
-	transform: translateY(-45px) translateX(-130px) scale(0.75);
+	transform: translateY(-45px) translateX(-50%) scale(0.75);
 }
 .svg {
-	position: relative;
-	top: -120px;
-	right: -215px;
+	top: 42%;
+	position: absolute;
 }
-.svg:hover {
+
+.view {
+	opacity: 1;
+	display: flex;
+	width: 80%;
+	background-color: black;
+	margin: 60px auto 0 auto;
+	transition: opacity 200ms ease-out;
+	height: 90px;
+	border-radius: 30px;
+	color: white;
+	padding: 30px;
+	box-sizing: border-box;
+	align-items: center;
+}
+.invisible {
+	opacity: 0;
+	/* transition: opacity 2000ms ease-out; */
+}
+.orderNumber {
+	display: inline-block;
+	font-family: var(---font);
+	font-size: 30px;
+}
+.read {
+	display: inline-block;
+	margin-left: auto;
+}
+.download {
+	display: inline-block;
+}
+.svg:hover,
+.read:hover,
+.download:hover {
 	cursor: pointer;
+}
+
+@media (max-width: 566.4px) {
+	.placeholder {
+		font-size: 20px;
+		vertical-align: center;
+	}
+	/* .svg {
+		right: 40%;
+		margin-left: auto;
+		top: 0px;
+	} */
+	.searchBox {
+		height: 60px;
+		padding: 2px;
+	}
+	.orderNumber {
+		font-size: 10px;
+	}
 }

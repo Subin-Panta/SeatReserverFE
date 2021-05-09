@@ -40,3 +40,12 @@ span {
 .footer:hover {
 	cursor: pointer;
 }
+@media (max-width: 966.4px) {
+	.bill {
+		width: 300px;
+		margin-left: -170px;
+	}
+	.header {
+		font-size: 10px;
+	}
+}

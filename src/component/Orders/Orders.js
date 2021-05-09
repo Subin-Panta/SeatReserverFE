@@ -2,10 +2,36 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import classes from './Orders.module.css'
 import WithErrorHandler from '../hoc/WithErrorHandler'
+import { useHistory } from 'react-router'
 const Orders = () => {
-	const [data, setData] = useState({ orderId: null })
+	const history = useHistory()
+	const [data, setData] = useState({ orderId: '' })
+	const [show, setShow] = useState(false)
+	const [orderData, setOrderData] = useState({})
 	const changeHandler = e => {
 		setData({ ...data, orderId: e.target.value })
+	}
+	const viewHandler = async e => {
+		console.log('Here')
+		try {
+			const response = await axios.get(
+				`/order/downloadOrder/${orderData.data.result._id}`,
+				{
+					responseType: 'blob'
+				}
+			)
+			history.push('/')
+			//opening new tab in window
+			//Create a Blob from the PDF Stream
+			const file = new Blob([response.data], { type: 'application/pdf' })
+			//Build a URL from the file
+			const fileURL = URL.createObjectURL(file)
+			//Open the URL on new Window
+			const pdfWindow = window.open()
+			pdfWindow.location.href = fileURL
+		} catch (error) {
+			console.log(error)
+		}
 	}
 	const clickHandler = async e => {
 		// get data.orderId, if it is null seterror and display a error message
@@ -20,6 +46,8 @@ const Orders = () => {
 				if ((result.statusCode = 200)) {
 					//display Order Below the search Box
 					console.log(result)
+					setShow(true)
+					setOrderData({ ...result })
 				}
 			} catch (error) {
 				//error is handled by oiur HOC
@@ -47,20 +75,51 @@ const Orders = () => {
 	)
 	return (
 		<div>
-			<div className={classes.container}>
-				<input
-					name='search'
-					className={classes.searchBox}
-					type='text'
-					value={data.orderId}
-					onChange={changeHandler}
-					placeholder=''
-				/>
-				<label htmlFor='search' className={classes.placeholder}>
-					Enter your Order Id
-				</label>
-				<div onClick={clickHandler} className={classes.svg}>
-					{svg}
+			<div className={classes.foreGround}>
+				<div className={classes.container}>
+					<input
+						name='search'
+						className={classes.searchBox}
+						type='text'
+						value={data.orderId}
+						onChange={changeHandler}
+						placeholder=''
+					></input>
+					<label htmlFor='search' className={classes.placeholder}>
+						Enter your Order Id
+					</label>
+					<div onClick={clickHandler} className={classes.svg}>
+						{svg}
+					</div>
+				</div>
+				<div className={show ? classes.view : classes.invisible}>
+					<div className={classes.orderNumber}>
+						Order #{orderData.data && orderData.data.result._id}
+					</div>
+					<div className={classes.read} onClick={viewHandler}>
+						<svg
+							width='75'
+							height='75'
+							viewBox='0 0 75 75'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M66.4281 34.2563C67.9094 36.1938 67.9094 38.8094 66.4281 40.7438C61.7625 46.8344 50.5687 59.375 37.5 59.375C24.4312 59.375 13.2375 46.8344 8.57185 40.7438C7.85117 39.816 7.45996 38.6747 7.45996 37.5C7.45996 36.3253 7.85117 35.184 8.57185 34.2563C13.2375 28.1656 24.4312 15.625 37.5 15.625C50.5687 15.625 61.7625 28.1656 66.4281 34.2563V34.2563Z'
+								stroke='#FFDADA'
+								stroke-width='2'
+								stroke-linecap='round'
+								stroke-linejoin='round'
+							/>
+							<path
+								d='M37.5 46.875C42.6777 46.875 46.875 42.6777 46.875 37.5C46.875 32.3223 42.6777 28.125 37.5 28.125C32.3223 28.125 28.125 32.3223 28.125 37.5C28.125 42.6777 32.3223 46.875 37.5 46.875Z'
+								stroke='white'
+								stroke-width='2'
+								stroke-linecap='round'
+								stroke-linejoin='round'
+							/>
+						</svg>
+					</div>
 				</div>
 			</div>
 		</div>
