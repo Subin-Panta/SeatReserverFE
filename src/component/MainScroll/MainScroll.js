@@ -13,6 +13,7 @@ const MainScroll = () => {
 			try {
 				const Data = await axios.get('/van/getData')
 				const spread = Data.data.data
+				console.log(Data)
 				setVanData([...vanData, ...spread])
 				return Data
 			} catch (error) {
