@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import classes from './form.module.css'

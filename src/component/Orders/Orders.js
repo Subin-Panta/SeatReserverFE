@@ -15,7 +15,7 @@ const Orders = () => {
 		console.log('Here')
 		try {
 			const response = await axios.get(
-				`/order/downloadOrder/${orderData.data.result._id}`,
+				`/api/order/downloadOrder/${orderData.data.result._id}`,
 				{
 					responseType: 'blob'
 				}
@@ -42,7 +42,7 @@ const Orders = () => {
 		console.log(ID)
 		if (ID) {
 			try {
-				const result = await axios.get(`/order/findOrder/${ID}`)
+				const result = await axios.get(`/api/order/findOrder/${ID}`)
 				if ((result.statusCode = 200)) {
 					//display Order Below the search Box
 					console.log(result)

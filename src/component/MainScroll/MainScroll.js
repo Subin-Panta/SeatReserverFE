@@ -11,7 +11,7 @@ const MainScroll = () => {
 	useEffect(() => {
 		const availableData = async () => {
 			try {
-				const Data = await axios.get('/van/getData')
+				const Data = await axios.get('/api/van/getData')
 				const spread = Data.data.data
 				console.log(Data)
 				setVanData([...vanData, ...spread])

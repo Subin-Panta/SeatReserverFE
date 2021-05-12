@@ -21,7 +21,7 @@ const NotFound = () => {
 			animate='final'
 			exit='exit'
 		>
-			Aint Got a Page Like THAT HERE BOSS
+			Aint Got a Page Like THAT
 		</motion.div>
 	)
 }

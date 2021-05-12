@@ -17,7 +17,7 @@ const ViewOrder = props => {
 	const viewHandler = async e => {
 		console.log('Here')
 		try {
-			const response = await axios.get(`/order/downloadOrder/${data._id}`, {
+			const response = await axios.get(`/api/order/downloadOrder/${data._id}`, {
 				responseType: 'blob'
 			})
 			history.push('/')

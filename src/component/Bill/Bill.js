@@ -47,7 +47,7 @@ const Bill = props => {
 			//pass vanId on URL
 
 			const res = await axios.post(
-				`/order/verifyOrder/${props.history.location.plateNumber}`,
+				`/api/order/verifyOrder/${props.history.location.plateNumber}`,
 				SumbitData
 			)
 
