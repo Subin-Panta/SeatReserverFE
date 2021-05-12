@@ -9,8 +9,8 @@ app.use(express.static(publicPath))
 app.use(
 	proxy('/api', {
 		target: 'https://stark-cove-03395.herokuapp.com/',
-		changeOrigin: true,
-		pathRewrite: { '^/api': '' }
+		changeOrigin: true
+		// pathRewrite: { '^/api': '' }
 	})
 )
 
